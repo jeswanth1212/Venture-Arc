@@ -18,6 +18,53 @@ const nav = [
 export function Navbar() {
   const navRef = useRef<HTMLDivElement | null>(null)
   const [open, setOpen] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [prevScrollY, setPrevScrollY] = useState(0)
+  const [atTop, setAtTop] = useState(true)
+
+  // Handle navbar visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      // Determine if we're at the top of the page
+      const isAtTop = currentScrollY <= 50
+      setAtTop(isAtTop)
+      
+      // Skip if we're in a tracks-section
+      const tracksElement = document.querySelector('.tracks-section')
+      if (tracksElement) {
+        const tracksRect = tracksElement.getBoundingClientRect()
+        // If the tracks section is in view, hide the navbar
+        if (tracksRect.top <= 0 && tracksRect.bottom >= 0) {
+          setVisible(false)
+          setPrevScrollY(currentScrollY)
+          return
+        }
+      }
+      
+      // Always show navbar at the top of the page
+      if (isAtTop) {
+        setVisible(true)
+        setPrevScrollY(currentScrollY)
+        return
+      }
+      
+      // Show navbar when scrolling up, hide when scrolling down
+      if (currentScrollY < prevScrollY) {
+        // Scrolling up
+        setVisible(true)
+      } else if (currentScrollY > prevScrollY) {
+        // Scrolling down
+        setVisible(false)
+      }
+      
+      setPrevScrollY(currentScrollY)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [prevScrollY])
 
   // Subtle follow-the-cursor motion (from Shivan navbar)
   useEffect(() => {
@@ -55,10 +102,12 @@ export function Navbar() {
   return (
     <>
       {/* Desktop floating glass navbar */}
-      <nav className="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <nav className={`navbar-container hidden md:block ${visible ? 'navbar-visible' : 'navbar-hidden'} transition-all duration-300`}>
         <div
           ref={navRef}
-          className="glass-nav flex items-center gap-1 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 shadow-lg transition-colors overflow-x-auto no-scrollbar rounded-full"
+          className={`glass-nav flex items-center gap-1 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 shadow-lg transition-colors overflow-x-auto no-scrollbar rounded-full 
+                    fixed top-6 left-1/2 -translate-x-1/2 z-50 
+                    ${!atTop ? 'bg-[#0b0b0f]/70 backdrop-blur-md' : 'bg-[#0b0b0f]/35 backdrop-blur-sm'}`}
         >
           {nav.map((item, index) => (
             <div key={item.href} className="flex items-center">
@@ -77,7 +126,9 @@ export function Navbar() {
       </nav>
 
       {/* Mobile standard header with menu */}
-      <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-[#0b0b0f]/35 backdrop-blur-md supports-[backdrop-filter]:bg-[#0b0b0f]/25 border-b border-white/10">
+      <header className={`navbar-container md:hidden ${visible ? 'navbar-visible' : 'navbar-hidden'} transition-all duration-300 
+                        ${!atTop ? 'bg-[#0b0b0f]/70 backdrop-blur-md' : 'bg-[#0b0b0f]/35 backdrop-blur-sm'}
+                        fixed inset-x-0 top-0 z-50 border-b border-white/10`}>
         <div className="h-16 px-4 flex items-center justify-between">
           {/* Empty brand slot per request */}
           <div />

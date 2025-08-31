@@ -1,15 +1,18 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist } from "next/font/google"
-import { Audiowide } from "next/font/google"
-import localFont from "next/font/local"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import { Audiowide } from "next/font/google";
+import localFont from "next/font/local";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import SmoothScrollProvider from "@/components/smooth-scroll-provider";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const geistSans = Geist({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-geist-sans",
-})
+});
 
 /**
  * Display font slot for the hero heading.
@@ -21,7 +24,7 @@ const displayFont = Audiowide({
   weight: "400",
   display: "swap",
   variable: "--font-display",
-})
+});
 
 const xeroda = localFont({
   src: "../public/font/Xeroda.woff2",
@@ -29,13 +32,13 @@ const xeroda = localFont({
   style: "normal",
   display: "swap",
   variable: "--font-xeroda",
-})
+});
 
 export const metadata: Metadata = {
   title: "VentureArc Hackathon 2025",
   description: "The Social Innovation Tech Championship by CSED-VIT Chennai",
-    generator: 'v0.app'
-}
+  generator: 'v0.app'
+};
 
 export default function RootLayout({
   children,
@@ -43,8 +46,33 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${displayFont.variable} ${xeroda.variable} antialiased scroll-smooth`}>
-      <body suppressHydrationWarning className="min-h-dvh bg-[#0b0b0f] text-white">{children}</body>
+    <html lang="en" className={`${geistSans.variable} ${displayFont.variable} ${xeroda.variable} antialiased`}>
+      <head>
+        <link rel="preload" href="/font/Blanka-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/font/Xeroda.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js" defer></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Force scroll to top on page refresh
+            history.scrollRestoration = 'manual';
+            window.addEventListener('load', () => {
+              window.scrollTo(0, 0);
+            });
+            window.addEventListener('beforeunload', () => {
+              document.documentElement.scrollTop = 0;
+            });
+          `
+        }} />
+      </head>
+      <body suppressHydrationWarning className="min-h-dvh bg-[#0b0b0f] text-white">
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <SmoothScrollProvider>
+            <ScrollToTop />
+            {children}
+          </SmoothScrollProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
