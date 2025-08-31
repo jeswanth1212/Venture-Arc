@@ -157,7 +157,27 @@ export function Hero() {
       requestAnimationFrame(animate);
     };
 
-    animate(0);
+    // Start animation; after a couple of frames, signal ready so splash can hide
+    let frames = 0;
+    const wrappedAnimate = (time: number) => {
+      shaderMaterial.uniforms.iTime.value = time * 0.001;
+      smoothedMouse.lerp(mouse, 0.1);
+      shaderMaterial.uniforms.smoothedMouse.value.set(
+        smoothedMouse.x * window.innerWidth,
+        smoothedMouse.y * window.innerHeight
+      );
+      renderer.render(scene, camera);
+      frames++;
+      if (frames === 2) {
+        try {
+          const event = new CustomEvent('app-ready', { detail: { source: 'hero' } });
+          window.dispatchEvent(event);
+        } catch {}
+      }
+      requestAnimationFrame(wrappedAnimate);
+    };
+
+    wrappedAnimate(0);
 
     // Handle Window Resize
     const handleResize = () => {

@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
 import ScrollToTop from "@/components/scroll-to-top";
 import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
+import Loader from "@/components/ui/loader";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -64,14 +65,37 @@ export default function RootLayout({
             history.scrollRestoration = 'manual';
             window.addEventListener('load', () => {
               window.scrollTo(0, 0);
+              // Fallback: hide after window load if app-ready wasn't fired
+              const el = document.getElementById('splash-loader');
+              if (el) {
+                setTimeout(() => {
+                  if (!el) return;
+                  el.style.transition = 'opacity 250ms ease';
+                  el.style.opacity = '0';
+                  setTimeout(() => el.remove(), 260);
+                }, 2000);
+              }
             });
             window.addEventListener('beforeunload', () => {
               document.documentElement.scrollTop = 0;
             });
+            // Hide splash when app signals ready (after Three.js renders)
+            window.addEventListener('app-ready', () => {
+              const el = document.getElementById('splash-loader');
+              if (el) {
+                el.style.transition = 'opacity 250ms ease';
+                el.style.opacity = '0';
+                setTimeout(() => el.remove(), 260);
+              }
+            }, { once: true });
           `
         }} />
       </head>
       <body suppressHydrationWarning className="min-h-dvh bg-black text-white">
+        {/* Splash loader for initial hard refresh */}
+        <div id="splash-loader" className="fixed inset-0 z-[70] flex items-center justify-center bg-black">
+          <Loader />
+        </div>
         {/* Global background grid (excluded from hero by hero's own background) */}
         <div className="pointer-events-none fixed inset-0 -z-10">
           <FlickeringGrid
