@@ -81,15 +81,10 @@ export function Organisers() {
   
   return (
     <div className="relative" ref={sectionRef}>
-      {/* Background effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-blue-900/5 blur-3xl"></div>
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-purple-900/5 blur-3xl"></div>
-      </div>
       
       {/* Title */}
       <div className="text-center mb-12 px-6 p-10">
-        <h2 className="font-[family-name:var(--font-display)] text-5xl text-white relative inline-block">
+        <h2 className="font-[family-name:var(--font-xeroda)] text-5xl text-white relative inline-block">
           <span className="relative z-10 px-4 py-1.5">ORGANIZING TEAMS</span>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 blur-lg -z-10 rounded-lg"></div>
         </h2>
@@ -119,7 +114,7 @@ export function Organisers() {
                       <org.icon aria-hidden className={`h-6 w-6 ${i === 0 ? 'text-blue-400' : 'text-purple-400'}`} />
                     </div>
                     <div>
-                      <h3 className="font-[family-name:var(--font-display)] text-2xl text-white">
+                      <h3 className="font-[family-name:var(--font-xeroda)] text-2xl text-white">
                         {org.name}
                       </h3>
                       <div className="px-2 py-0.5 bg-white/10 rounded-full text-xs text-white/70 mt-1 inline-block">

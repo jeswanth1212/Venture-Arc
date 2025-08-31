@@ -21,7 +21,7 @@ export function GlassCard({
   return (
     <div
       className={cn(
-        "relative backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-300 border",
+        "relative backdrop-blur-sm rounded-xl overflow-hidden transition-all duration-300 border mx-3 sm:mx-0",
         variant === "default" && "bg-white/[0.05] border-white/10",
         variant === "highlight" && "bg-gradient-to-br from-white/[0.08] to-white/[0.03] border-white/10",
         variant === "accent" && "bg-gradient-to-br from-fuchsia-900/10 to-fuchsia-900/5 border-fuchsia-500/20",

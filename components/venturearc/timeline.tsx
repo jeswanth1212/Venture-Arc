@@ -281,7 +281,7 @@ export function Timeline() {
       id="timeline-section"
     >
       <div className="text-center mb-16">
-        <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl text-white">
+        <h2 className="font-[family-name:var(--font-xeroda)] text-3xl md:text-4xl lg:text-5xl text-white">
         Timeline
       </h2>
         <div className="w-40 h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent mx-auto mt-3"></div>
@@ -377,13 +377,13 @@ export function Timeline() {
                 />
                 
                 <div className={`bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-xl transform transition-all duration-500 ${isEven ? 'md:ml-8' : 'md:mr-8'}`}>
-                  <h3 className="font-[family-name:var(--font-display)] text-white mb-1 text-2xl px-2">
+                  <h3 className="font-[family-name:var(--font-xeroda)] text-white mb-1 text-2xl px-2">
                     {event.step}
                   </h3>
-                  <h4 className="font-[family-name:var(--font-display)] text-white/90 mb-3 text-xl px-2">
+                  <h4 className="font-[family-name:var(--font-xeroda)] text-white/90 mb-3 text-xl px-2">
                     {event.title}
                   </h4>
-                  <p className="text-white/85 font-[family-name:var(--font-xeroda)] text-base">
+                  <p className="text-white/85 libertinus-sans-regular text-base">
                     {event.description}
                   </p>
                 </div>

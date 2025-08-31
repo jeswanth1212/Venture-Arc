@@ -148,17 +148,7 @@ export function About() {
       className="py-32 md:py-40 relative overflow-hidden" // Increased padding
       id="about-section" // Added ID for easier targeting
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute -top-[30%] -left-[10%] w-[40%] h-[60%] bg-indigo-950/5 rounded-full blur-3xl" 
-          style={{ animation: 'floatingGlow 8s ease-in-out infinite' }}
-        ></div>
-        <div 
-          className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-950/5 rounded-full blur-3xl"
-          style={{ animation: 'floatingGlow 12s ease-in-out infinite 1s' }}
-        ></div>
-      </div>
+      {/* Decorative background removed for uniform pitch black */}
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -171,11 +161,11 @@ export function About() {
             </div>
             <h2 
               ref={headingRef} 
-              className="text-5xl md:text-6xl lg:text-6xl font-[family-name:var(--font-display)] text-white leading-tight"
+              className="text-5xl md:text-6xl lg:text-6xl font-[family-name:var(--font-xeroda)] text-white leading-tight"
             >
               Innovation Meets Impact
             </h2>
-            <div ref={dividerRef} className="w-24 h-0.5 bg-fuchsia-400/50"></div>
+            <div ref={dividerRef} className="w-24 h-0.5 bg-white/30"></div>
             <p 
               ref={textRef} 
               className="text-white/85 leading-relaxed font-[family-name:var(--font-xeroda)] text-lg md:text-xl"
@@ -191,7 +181,7 @@ export function About() {
             className="rounded-2xl relative group"
           >
             <div className="absolute -inset-0.5 bg-white/5 rounded-2xl blur-sm opacity-50 group-hover:opacity-70 transition duration-700"></div>
-            <div className="rounded-2xl overflow-hidden relative bg-[#0f0f1a] border border-white/10 aspect-video p-8 flex items-center justify-center transform group-hover:scale-[0.99] transition-transform duration-500">
+            <div className="rounded-2xl overflow-hidden relative bg-black border border-white/10 aspect-video p-8 flex items-center justify-center transform group-hover:scale-[0.99] transition-transform duration-500">
               <div className="text-center space-y-8">
                 <div className="text-5xl md:text-6xl font-[family-name:var(--font-display)] text-white tracking-wider">2025</div>
                 <div className="space-y-4">

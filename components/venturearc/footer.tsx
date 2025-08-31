@@ -17,7 +17,7 @@ export function Footer() {
       <div className="container mx-auto max-w-5xl px-4 relative z-10">
         {/* Contact Section */}
         <div className="mb-16">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl mb-8 text-center text-white">
+          <h2 className="font-[family-name:var(--font-xeroda)] text-3xl md:text-4xl mb-8 text-center text-white">
             Contact Us
           </h2>
           <div className="w-40 h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent mx-auto mb-8"></div>
@@ -37,7 +37,7 @@ export function Footer() {
               />
             </div>
             <div>
-              <h3 className="font-[family-name:var(--font-display)] text-xl text-white">VentureArc</h3>
+              <h3 className="font-[family-name:var(--font-xeroda)] text-xl text-white">VentureArc</h3>
               <p className="text-white/60 text-xs">Social Innovation Tech Championship</p>
             </div>
           </div>

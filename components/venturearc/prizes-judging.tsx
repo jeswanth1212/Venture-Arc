@@ -107,15 +107,10 @@ export function PrizesJudging() {
     <div className="space-y-16" ref={sectionRef}>
       {/* Judging Criteria Section */}
       <div className="relative overflow-hidden">
-        {/* Background with aurora */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-fuchsia-900/5 blur-3xl"></div>
-          <div className="absolute top-20 right-0 w-64 h-64 rounded-full bg-indigo-900/5 blur-3xl"></div>
-        </div>
         
         <div className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <h3 className="font-[family-name:var(--font-display)] text-4xl text-center text-white mb-2">
+            <h3 className="font-[family-name:var(--font-xeroda)] text-4xl text-center text-white mb-2">
               JUDGING CRITERIA
             </h3>
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent mx-auto"></div>
@@ -132,10 +127,10 @@ export function PrizesJudging() {
                     <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-fuchsia-500/10">
                       <item.icon className="h-7 w-7 text-fuchsia-400" />
                     </div>
-                    <h4 className="font-[family-name:var(--font-display)] text-2xl text-white">{item.title}</h4>
+                    <h4 className="font-[family-name:var(--font-xeroda)] text-2xl text-white">{item.title}</h4>
                   </div>
                   
-                  <p className="text-white/85 leading-relaxed">
+                  <p className="text-white/85 libertinus-sans-regular leading-relaxed">
                     {item.desc}
                   </p>
                   
@@ -168,14 +163,10 @@ export function PrizesJudging() {
 
       {/* Prize Cards */}
       <div ref={prizesRef} className="relative">
-        {/* Background with aurora */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-amber-800/5 blur-3xl"></div>
-        </div>
         
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <h3 className="font-[family-name:var(--font-display)] text-4xl text-center text-white mb-2">
+            <h3 className="font-[family-name:var(--font-xeroda)] text-4xl text-center text-white mb-2">
               PRIZES & AWARDS
             </h3>
             <div className="w-40 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-3"></div>
@@ -203,10 +194,10 @@ export function PrizesJudging() {
                     </div>
                     
                     {/* Prize title */}
-                    <h4 className="font-[family-name:var(--font-display)] text-2xl text-white mb-2">{prize.title}</h4>
+                    <h4 className="font-[family-name:var(--font-xeroda)] text-2xl text-white mb-2">{prize.title}</h4>
                     
                     {/* Prize description */}
-                    <p className="text-white/85 font-[family-name:var(--font-xeroda)] text-sm">
+                    <p className="text-white/85 libertinus-sans-regular text-sm">
                       {prize.desc}
                     </p>
                     
@@ -224,7 +215,7 @@ export function PrizesJudging() {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-white/70 font-[family-name:var(--font-xeroda)]">
+            <p className="text-white/70 libertinus-sans-regular">
               Winners will be announced during the closing ceremony. <br />
               <span className="text-amber-400">Total prize pool - Coming Soon</span>
             </p>

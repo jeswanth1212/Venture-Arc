@@ -138,13 +138,13 @@ export function Highlights() {
       <div className="text-center mb-16">
         <div className="inline-block relative">
           <div className="mb-2">
-            <span className="font-[family-name:var(--font-display)] text-5xl text-black/10 absolute top-0 left-0 filter blur-[3px]">EVENT HIGHLIGHTS</span>
-            <span className="font-[family-name:var(--font-display)] text-5xl text-white relative">EVENT HIGHLIGHTS</span>
+            <span className="font-[family-name:var(--font-xeroda)] text-5xl text-black/10 absolute top-0 left-0 filter blur-[3px]">EVENT HIGHLIGHTS</span>
+            <span className="font-[family-name:var(--font-xeroda)] text-5xl text-white relative">EVENT HIGHLIGHTS</span>
           </div>
           <div className="w-full h-1 bg-gradient-to-r from-cyan-500/50 via-indigo-500/50 to-cyan-500/50 mt-2"></div>
         </div>
         
-        <p className="text-white/70 font-[family-name:var(--font-xeroda)] max-w-2xl mx-auto mt-6">
+        <p className="text-white/70 libertinus-sans-regular max-w-2xl mx-auto mt-6">
           VentureArc isn't just a hackathon - it's an immersive experience designed to inspire, 
           educate, and connect participants with the resources they need to succeed.
         </p>
@@ -178,11 +178,11 @@ export function Highlights() {
                 </div>
                 
                 {/* Highlight content */}
-                <h3 className="font-[family-name:var(--font-display)] text-xl text-white mb-3 leading-tight">
+                <h3 className="font-[family-name:var(--font-xeroda)] text-xl text-white mb-3 leading-tight">
                   {item.title}
                 </h3>
                 
-                <p className="text-white/70 font-[family-name:var(--font-xeroda)] text-sm leading-relaxed">
+                <p className="text-white/70 libertinus-sans-regular text-sm leading-relaxed">
                   {item.desc}
                 </p>
                 
@@ -202,7 +202,7 @@ export function Highlights() {
         <div className="bg-gradient-to-r from-cyan-900/20 to-indigo-900/20 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8">
-              <h3 className="font-[family-name:var(--font-display)] text-3xl text-white mb-4">
+              <h3 className="font-[family-name:var(--font-xeroda)] text-3xl text-white mb-4">
                 KEYNOTE SPEAKERS
               </h3>
               <p className="text-white/80 font-[family-name:var(--font-xeroda)] leading-relaxed mb-6">
@@ -210,7 +210,7 @@ export function Highlights() {
                 of technology and social impact. Our carefully curated lineup features experts from 
                 diverse backgrounds sharing invaluable insights.
               </p>
-              <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg font-[family-name:var(--font-display)] text-sm">
+              <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-300 rounded-lg font-[family-name:var(--font-xeroda)] text-sm">
                 COMING SOON
               </div>
             </div>

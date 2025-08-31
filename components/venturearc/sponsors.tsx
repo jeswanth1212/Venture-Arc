@@ -125,11 +125,6 @@ export function Sponsors() {
   
   return (
     <div className="relative" ref={sectionRef}>
-      {/* Background aurora effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-900/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 right-10 w-80 h-80 bg-violet-900/5 rounded-full blur-3xl"></div>
-      </div>
       
       {/* Sponsors section */}
       <div className="mb-20 p-10">
@@ -137,8 +132,8 @@ export function Sponsors() {
         <div className="text-center mb-16 px-6">
           <div className="inline-block relative">
             <div className="mb-2">
-              <span className="font-[family-name:var(--font-display)] text-5xl text-black/10 absolute top-0 left-0 filter blur-[3px]">SPONSORS</span>
-              <span className="font-[family-name:var(--font-display)] text-5xl text-white relative px-2 py-1">SPONSORS</span>
+              <span className="font-[family-name:var(--font-xeroda)] text-5xl text-black/10 absolute top-0 left-0 filter blur-[3px]">SPONSORS</span>
+              <span className="font-[family-name:var(--font-xeroda)] text-5xl text-white relative px-2 py-1">SPONSORS</span>
             </div>
             <div className="w-full h-1 bg-gradient-to-r from-amber-500/50 via-yellow-500/50 to-amber-500/50 mt-2"></div>
           </div>
@@ -243,8 +238,8 @@ export function Sponsors() {
         
         {/* Become a sponsor CTA */}
         <div className="mt-20 text-center">
-          <div className="inline-block relative px-8 py-6 bg-gradient-to-br from-amber-900/20 via-violet-900/20 to-amber-900/20 backdrop-blur-md rounded-xl border border-white/10">
-            <h3 className="font-[family-name:var(--font-display)] text-2xl text-white mb-4">
+          <div className="inline-block relative px-8 py-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
+            <h3 className="font-[family-name:var(--font-xeroda)] text-2xl text-white mb-4">
               INTERESTED IN SPONSORSHIP?
             </h3>
             <p className="text-white/70 font-[family-name:var(--font-xeroda)] max-w-2xl mx-auto mb-6">
@@ -253,7 +248,7 @@ export function Sponsors() {
             </p>
             <a 
               href="#" 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-violet-500 rounded-lg font-[family-name:var(--font-display)] text-white text-sm transition-all hover:opacity-90"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-violet-500 rounded-lg font-[family-name:var(--font-xeroda)] text-white text-sm transition-all hover:opacity-90"
             >
               SPONSORSHIP PACKAGE
               <ExternalLink className="h-4 w-4" />

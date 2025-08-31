@@ -7,6 +7,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
 import ScrollToTop from "@/components/scroll-to-top";
+import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -65,7 +66,18 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body suppressHydrationWarning className="min-h-dvh bg-[#0b0b0f] text-white">
+      <body suppressHydrationWarning className="min-h-dvh bg-black text-white">
+        {/* Global background grid (excluded from hero by hero's own background) */}
+        <div className="pointer-events-none fixed inset-0 -z-10">
+          <FlickeringGrid
+            className="[mask-image:radial-gradient(1400px_circle_at_center,white,transparent)]"
+            color="#7C3AED"
+            maxOpacity={0.12}
+            flickerChance={0.12}
+            squareSize={4}
+            gridGap={4}
+          />
+        </div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <SmoothScrollProvider>
             <ScrollToTop />

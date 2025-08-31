@@ -3,7 +3,7 @@ export function Contact() {
     <div className="grid gap-8 md:grid-cols-2">
       {/* Reach out details */}
       <div className="rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm p-6 md:p-8 space-y-4">
-        <h3 className="font-[family-name:var(--font-display)] text-2xl text-white">Get in touch</h3>
+        <h3 className="font-[family-name:var(--font-xeroda)] text-2xl text-white">Get in touch</h3>
         <p className="text-white/70 font-[family-name:var(--font-xeroda)]">
           We’d love to hear from you. Reach out for partnerships, speaking, or general queries.
         </p>
@@ -41,7 +41,7 @@ export function Contact() {
 
       {/* Quick message / CTA */}
       <div className="rounded-xl border border-white/10 bg-gradient-to-br from-fuchsia-900/20 via-violet-900/20 to-fuchsia-900/20 p-6 md:p-8">
-        <h3 className="font-[family-name:var(--font-display)] text-2xl text-white mb-3">Quick message</h3>
+        <h3 className="font-[family-name:var(--font-xeroda)] text-2xl text-white mb-3">Quick message</h3>
         <p className="text-white/75 font-[family-name:var(--font-xeroda)] mb-5">Prefer email? Use the button below to compose one instantly.</p>
         <div className="grid gap-3">
           <input placeholder="Your name" className="w-full rounded-md bg-black/30 border border-white/10 px-3 py-2 text-white placeholder-white/50 focus:outline-none" />

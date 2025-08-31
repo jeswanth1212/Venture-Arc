@@ -167,24 +167,15 @@ export function Tracks() {
       className="tracks-section relative w-full overflow-hidden h-screen"
       id="innovation-tracks"
     >
-      {/* Aurora background effect */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-50">
-        <div className="absolute -top-[30%] -left-[10%] w-[40%] h-[60%] bg-fuchsia-900/20 rounded-full blur-3xl" 
-          style={{ animation: 'floatingGlow 15s ease-in-out infinite' }}></div>
-        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-900/20 rounded-full blur-3xl"
-          style={{ animation: 'floatingGlow 18s ease-in-out infinite 1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-[30%] h-[30%] bg-cyan-900/20 rounded-full blur-3xl"
-          style={{ animation: 'floatingGlow 20s ease-in-out infinite 2s' }}></div>
-      </div>
+      {/* Decorative background removed for uniform pitch black */}
       
       {/* Section title */}
       <div className="absolute top-0 left-0 w-full py-8 px-4 z-20 pointer-events-none text-center">
         <div className="container mx-auto">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-white relative inline-block">
+          <h2 className="font-[family-name:var(--font-xeroda)] text-4xl md:text-5xl text-white relative inline-block">
             <span className="relative z-10 px-2">INNOVATION TRACKS</span>
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-fuchsia-500/10 via-cyan-500/10 to-fuchsia-500/10 blur-lg -z-10 rounded-lg"></div>
           </h2>
-          <div className="w-40 h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent mx-auto mt-3"></div>
+          <div className="w-40 h-1 bg-white/30 mx-auto mt-3"></div>
         </div>
       </div>
       
@@ -241,8 +232,8 @@ export function Tracks() {
                     {/* Title with 3D effect - Top Right */}
                     <div className="absolute top-4 right-4 md:top-8 md:right-8 text-right z-20 max-w-[60%]">
                       <div className="relative">
-                        <h3 className="font-[family-name:var(--font-display)] text-xl md:text-3xl lg:text-4xl text-black/10 filter blur-[2px]">{track.title}</h3>
-                        <h3 className="font-[family-name:var(--font-display)] text-xl md:text-3xl lg:text-4xl text-white absolute top-0 right-0">{track.title}</h3>
+                        <h3 className="font-[family-name:var(--font-xeroda)] text-xl md:text-3xl lg:text-4xl text-black/10 filter blur-[2px]">{track.title}</h3>
+                        <h3 className="font-[family-name:var(--font-xeroda)] text-xl md:text-3xl lg:text-4xl text-white absolute top-0 right-0">{track.title}</h3>
                       </div>
                     </div>
                   </div>
@@ -255,7 +246,7 @@ export function Tracks() {
                         <div className={`inline-grid place-items-center h-10 w-10 md:h-12 md:w-12 rounded-xl bg-gradient-to-br ${accents[i%accents.length]} to-transparent`}>
                           <track.icon aria-hidden className="h-5 w-5 md:h-6 md:w-6 text-white" />
                         </div>
-                        <h3 className="font-[family-name:var(--font-display)] text-xl md:text-2xl lg:text-3xl text-white tracking-tight">
+                        <h3 className="font-[family-name:var(--font-xeroda)] text-xl md:text-2xl lg:text-3xl text-white tracking-tight">
                           {track.title}
                         </h3>
                       </div>
