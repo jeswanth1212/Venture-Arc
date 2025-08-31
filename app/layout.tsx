@@ -38,7 +38,12 @@ const xeroda = localFont({
 export const metadata: Metadata = {
   title: "VentureArc Hackathon 2025",
   description: "The Social Innovation Tech Championship by CSED-VIT Chennai",
-  generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  }
 };
 
 export default function RootLayout({
