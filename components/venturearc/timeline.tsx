@@ -195,9 +195,9 @@ export function Timeline() {
         } else {
           const drawn = target - segStart;
           gsap.set(path, { strokeDashoffset: Math.max(0, lengths[i] - drawn) });
-                }
-              }
-              
+        }
+      }
+
       // Reveal logic: first dot/card and then each subsequent when its segment completes
       // First elements
       const showFirst = progress > 0.01;
@@ -210,14 +210,15 @@ export function Timeline() {
       // Subsequent
       for (let i = 0; i < lengths.length; i++) {
         const segEnd = cum[i];
-        const shouldShow = target >= segEnd - 1; // small epsilon
+        const revealSlack = Math.max(1, lengths[i] * 0.2); // reveal when within last 20% of segment
+        const shouldShow = target >= segEnd - revealSlack;
         const idx = i + 1; // reveal next dot/card
         if (revealStatesRef.current[idx] !== shouldShow) {
           revealStatesRef.current[idx] = shouldShow;
           animateVisibility(dotRefs.current[idx], shouldShow);
           animateVisibility(timelineRefs.current[idx], shouldShow);
-                }
-              }
+        }
+      }
     };
 
     const initAnimation = () => {
@@ -234,13 +235,15 @@ export function Timeline() {
         if (!section) return;
         const rect = section.getBoundingClientRect();
         const viewportH = window.innerHeight || 0;
-        // Map progress from when the top hits 85% viewport to when the bottom reaches 40%
-        const startY = 0.85 * viewportH;
-        const endTop = 0.4 * viewportH - rect.height;
-        const denom = Math.max(1, startY - endTop); // prevents divide by zero
+        // Advance completion earlier: start when top hits 90%, finish when bottom hits 50%
+        const startY = 0.9 * viewportH;
+        const endTop = 0.5 * viewportH - rect.height;
+        const denom = Math.max(1, startY - endTop);
         const raw = (startY - rect.top) / denom;
         const clamped = Math.max(0, Math.min(1, raw));
-        setOffsetsForProgress(clamped);
+        // Force final revelation slightly before section exit
+        const adjusted = (rect.bottom <= viewportH * 0.9 || clamped > 0.92) ? 1 : clamped;
+        setOffsetsForProgress(adjusted);
       };
       tickerUpdateRef.current = update;
       gsap.ticker.add(update);
